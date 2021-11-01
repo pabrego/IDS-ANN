@@ -47,13 +47,14 @@ En primer lugar, se deben cargar los datos dentro de la funcion `load_data(file 
 
 Luego, se deben normalizar las columnas de los valores de entrada con la siguiente fórmula:
 
-# <img src="https://render.githubusercontent.com/render/math?math=x = \frac{x - x_{min}}{x_{max} - x_{min}} \cdot (b-a) + a">
+<img src="https://render.githubusercontent.com/render/math?math=x = \frac{x - x_{min}}{x_{max} - x_{min}} \cdot (b-a) + a">
+
 
 Donde:
-x -> registro actual
-x_{min} -> valor menor de la columna
-x_{max} -> valor mayor de la columna
-a = 0,01
-b = 0,99
-
+- x -> registro actual
+- x_{min} -> valor menor de la columna
+- x_{max} -> valor mayor de la columna
+- a = 0,01
+- b = 0,99
+- 
 Con los valores normalizados, quedan preparados para empezar la etapa de training de la red neuronal.
