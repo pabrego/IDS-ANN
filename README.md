@@ -47,7 +47,7 @@ En primer lugar, se deben cargar los datos dentro de la funcion `load_data(file 
 
 Luego, se deben normalizar las columnas de los valores de entrada con la siguiente fórmula:
 
-## $$x = \frac{x - x_{min}}{x_{max} - x_{min}} \cdot (b-a) + a$$
+## <img src="https://render.githubusercontent.com/render/math?math=x = \frac{x - x_{min}}{x_{max} - x_{min}} \cdot (b-a) + a">
 
 Donde:
 $$x$$ -> registro actual
