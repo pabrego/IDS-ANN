@@ -1,0 +1,16 @@
+- [X] iniSwarm
+- [X] randW
+- [ ] mlp_Fitness
+- [ ] upd_pFitness
+- [ ] upd_pFitness
+- [ ] upd_veloc
+- [ ] upd_swarm
+- [ ] w2_pinv
+- [ ] forward
+- [X] act_function
+- [ ] metrica
+- [ ] confusion_matrix
+- [X] norm_data
+- [ ] save_w
+- [ ] load_w
+

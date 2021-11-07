@@ -4,7 +4,17 @@ import pandas     as pd
 import numpy      as np
 import my_utility as ut
 
-def train_pso(x,y,param):    
+def train_pso(x,y,param):
+    """
+    Parameters:
+        x: Datos
+        y: Vector de salida
+        param: Configuracion
+            param[0]: N° Iteraciones
+            param[1]: Numero de nodos ocultos
+            param[2]: Numero de particulas
+            param[3]: Penalizacion C Pinv.
+    """
     X = ut.iniSwarm(param[1],param[2],x.shape[0])
     P = {}
     P['Pos']   = np.zeros(X.shape)               #Best particle position  
@@ -15,9 +25,10 @@ def train_pso(x,y,param):
     w2Best= np.zeros((1,param[1]))               #Best  output weight     
     Cost  = []
     for iTer in range(param[0]):
-        (...)    = ut.mlp_Fitness(x,y,X,param[3])
+        P        = ut.mlp_Fitness(x,y,X,param[3])
+        print(P)
         (...)    = ut.upd_pFitness(...)        
-        (...)    = ut.upd_veloc(iTer, )          
+        V        = ut.upd_veloc(iTer, X, V)          
         X        = X+V       
     return(w1,w2Best,Cost)
 

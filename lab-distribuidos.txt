@@ -1,0 +1,6 @@
+Objetivo: implementar un sistema de detección de instrusos.
+
+	1. Calibrar pesos de salida (backward con pseudo-inversa Moore-Penrose)
+	2. Calibrar pesos ocultos (forward por optimización por enjambres de particulas (PSO))
+	3. Evaluar rendimiento del IDS mediante la matriz de confusión (verdaderos verdaderos, falsos verdaderos, falsos falsos y verdaderos falsos).
+  

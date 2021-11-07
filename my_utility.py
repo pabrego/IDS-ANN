@@ -8,45 +8,50 @@ from pprint import pprint
 def iniSwarm(Nh, Np, d):
     """
     Parameters:    
-        d: Largo de x
+        d: Largo de una fila de X (Cantidad de caracteristicas)
     """
+    # Matriz con el swarm inicial
     X = np.zeros((Np, (Nh*d)))
-
+    # Se llena la matriz con pesos aleatoreos
     for i in range(Np):
-        w = randW(Nh, d)
-        aux = np.reshape(w, (d, i))
-        X[i] = aux
+        X[i] = randW(Nh, d)
 
-
-    # complete
     return(X)
-
-"""
-def ini_swarm(self, num_part, num_hidden, D):
-        self.np = num_part
-        self.nh = num_hidden
-
-        dim = self.nh*D
-        X = np.zeros( (self.np, dim), dtype=float)
-
-        for i in range(self.np):
-            wh = self.rand_w(self.nh, D)
-            a = np.reshape(wh, (1, dim))
-            X[i]= a
-        self.X = X
-"""
 
 
 # Initialize random weights
 def randW(next, prev):
-    # complete
     r = np.sqtr(6/(next + prev))
-    w = (np.random.uniform(next, prev) * 2 * r) - r
+    w = (np.random.random((next, prev)) * 2 * r) - r
     return(w)
 
 # MLP-fitness
-def mlp_Fitness():
-    # complete
+def mlp_Fitness(x,y,X,C):
+    """
+    Parameters: 
+        d: dimensión. Numero de variables
+        x: Datos de entrenamiento
+        y: Valores de salida
+        X: Matriz con los pesos
+        C: Valor de penalizacion para la pseudo-inversa
+    """
+
+    """
+    Pasos:
+    La neurona i recibe la suma(de j=0 a d) de x[j] * w1[j][i]
+
+    """
+    H = np.zeros(X.shape[0])              # matriz de salida de las neuronas
+    for i in range(x.shape[0]):         #por cada neurona
+        sum                             #sumo todos los valores de entrada (x * w1: revisar lucidchard)
+        salida = act_function()         #aplico funcion de activación
+        H.append(salida)                #lo agrego a la matriz
+
+        W2 = w2_pinv(H, y, C)           # actualizo valores de W2 con la p-inversa
+
+        MSE                             # calculo error cuadrático
+
+    
     return(W2, MSE)
 
 
@@ -57,7 +62,7 @@ def upd_pFitness():
 
 
 # Update Velocity of PSO
-def upd_veloc(iTer):
+def upd_veloc(iTer, X, V):
     # Constantes
     c1 = 1.05
     c2 = 2.95
@@ -67,10 +72,11 @@ def upd_veloc(iTer):
     params = load_config()
     # Inercia
     '''Imax: iteracion maxima; Iact: iteracion actual'''
-    Imax = params[0]
-    a = 0.95 -( ((0.95 - 0.1) / Imax) * iTer)
-    # Velocidad (V)
-    V = a * 
+    for i in range(len(X)):
+        Imax = params[0]
+        a = 0.95 -( ((0.95 - 0.1) / Imax) * iTer)
+        # Velocidad (V)
+        V = a * 
 
     return(...)
 
@@ -106,6 +112,10 @@ def w2_pinv(H, y, C):
     Bt = np.transpose(B)
     Binv = np.linalg.inv(Bt * B) * Bt
     # Peso actualizado
+
+    # H * W2 = y
+    # W2 = Pseudoinversa * H * Y
+
     w2 = Binv * H * Yt
     return(w2)
 
